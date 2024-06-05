@@ -1,0 +1,20 @@
+[project]
+name = "construction_mgt"
+authors = [
+    { name = "Byoosi.com", email = "info@byoosi.com"}
+]
+description = "Engineering Companies require a clear understanding of every process Byoosi.com has built this within erpnext so sort all issues within the Construction industry, we automate processes and make it easy"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # "frappe~=15.0.0" # Installed and managed by bench.
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+# These dependencies are only installed when developer mode is enabled
+[tool.bench.dev-dependencies]
+# package_name = "~=1.1.0"
