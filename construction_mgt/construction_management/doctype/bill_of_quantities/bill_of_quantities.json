@@ -1,0 +1,202 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-07-31 16:48:30.839252",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "project_details",
+  "naming_series",
+  "project_name",
+  "project_location",
+  "company",
+  "column_break_fwhj",
+  "client",
+  "consultant",
+  "date",
+  "quantity_surveyor",
+  "section_break_egzz",
+  "long_text_ekro",
+  "section_break_ainp",
+  "price_list",
+  "boq_detail",
+  "total_qty",
+  "grand_totals",
+  "summary_of_boq_section",
+  "summary_of_the_section",
+  "procument_attachments_section",
+  "project_documents",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "description": "A Bill of Quantities (BoQ) is an essential document in construction project management, detailing the materials, parts, and labor required for a project.",
+   "fieldname": "project_details",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CM-BOQ-.YYYY.-"
+  },
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_fwhj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consultant",
+   "fieldtype": "Data",
+   "label": "Consultant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity_surveyor",
+   "fieldtype": "Link",
+   "label": "Quantity Surveyor ",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "description": "his section allows you to provide a short description of the project, upload and manage photos related to the construction project.",
+   "fieldname": "section_break_egzz",
+   "fieldtype": "Section Break",
+   "label": "Project Description"
+  },
+  {
+   "fieldname": "long_text_ekro",
+   "fieldtype": "Text Editor",
+   "label": "Description Detail"
+  },
+  {
+   "description": "In this Section Detail every information of the project.",
+   "fieldname": "section_break_ainp",
+   "fieldtype": "Section Break",
+   "label": "BoQ Items"
+  },
+  {
+   "fieldname": "boq_detail",
+   "fieldtype": "Table",
+   "label": "BoQ Details",
+   "options": "BoQ Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "summary_of_boq_section",
+   "fieldtype": "Section Break",
+   "label": "Summary of BoQ"
+  },
+  {
+   "fieldname": "summary_of_the_section",
+   "fieldtype": "Table",
+   "label": "Summary of the Section",
+   "options": "BoQ Summary Items"
+  },
+  {
+   "description": "Attach Key Documents Like Architectural Plans, Approvals, Structural Plans and much more",
+   "fieldname": "procument_attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Procument Attachments"
+  },
+  {
+   "fieldname": "project_documents",
+   "fieldtype": "Table",
+   "label": "Project Documents",
+   "options": "Project Attachments Items"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Bill of Quantities",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty"
+  },
+  {
+   "fieldname": "grand_totals",
+   "fieldtype": "Currency",
+   "label": "Grand Totals"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-07-31 17:19:50.769109",
+ "modified_by": "Administrator",
+ "module": "Construction Management",
+ "name": "Bill of Quantities",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
