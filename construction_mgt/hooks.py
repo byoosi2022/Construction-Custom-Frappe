@@ -217,11 +217,10 @@ fixtures = [
     {
         "doctype": "Custom Field",
         "filters": [
-            ["module", "=", "HMH CUSTOM APP"]
+            ["module", "=", "Construction Management"]
         ]
     }
 ]
-
 
 # Authentication and authorization
 # --------------------------------
