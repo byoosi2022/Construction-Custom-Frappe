@@ -213,6 +213,16 @@ app_license = "mit"
 # 	}
 # ]
 
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            ["module", "=", "HMH CUSTOM APP"]
+        ]
+    }
+]
+
+
 # Authentication and authorization
 # --------------------------------
 
