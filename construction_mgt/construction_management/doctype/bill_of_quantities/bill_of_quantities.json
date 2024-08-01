@@ -17,6 +17,7 @@
   "consultant",
   "date",
   "quantity_surveyor",
+  "quantity_surveyor__name",
   "section_break_egzz",
   "long_text_ekro",
   "section_break_ainp",
@@ -170,12 +171,20 @@
    "fieldtype": "Link",
    "label": "Price List",
    "options": "Price List"
+  },
+  {
+   "fetch_from": "quantity_surveyor.employee_name",
+   "fieldname": "quantity_surveyor__name",
+   "fieldtype": "Data",
+   "label": "Quantity Surveyor  Name",
+   "options": "Employee",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-31 17:19:50.769109",
+ "modified": "2024-08-01 14:45:12.445601",
  "modified_by": "Administrator",
  "module": "Construction Management",
  "name": "Bill of Quantities",

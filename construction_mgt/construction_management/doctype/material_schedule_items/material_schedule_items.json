@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-01 14:29:07.044243",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section",
+  "activity",
+  "item",
+  "unit_of_measure",
+  "description",
+  "quantity_required",
+  "delivery_date",
+  "column_break_sifc",
+  "rate",
+  "amount",
+  "specifications",
+  "supplier_employee",
+  "status",
+  "comments_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Section ",
+   "options": "Task Type"
+  },
+  {
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Activity ",
+   "options": "Task"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "unit_of_measure",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit of Measure",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "quantity_required",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity Required"
+  },
+  {
+   "fieldname": "column_break_sifc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount"
+  },
+  {
+   "fieldname": "specifications",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Specifications"
+  },
+  {
+   "fieldname": "supplier_employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier Details/Employee",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nOrdered\nIn Transit\nDelivered\nUsed"
+  },
+  {
+   "fieldname": "comments_notes",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Comments/Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-01 14:40:05.014504",
+ "modified_by": "Administrator",
+ "module": "Construction Management",
+ "name": "Material Schedule Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
