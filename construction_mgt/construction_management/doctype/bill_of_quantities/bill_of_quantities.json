@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2024-07-31 16:48:30.839252",
@@ -48,6 +49,8 @@
    "fieldname": "project_name",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Project Name",
    "options": "Project",
    "reqd": 1
@@ -57,8 +60,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Project Location",
-   "options": "Location",
-   "reqd": 1
+   "options": "Location"
   },
   {
    "fieldname": "company",
@@ -89,15 +91,13 @@
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date",
-   "reqd": 1
+   "label": "Date"
   },
   {
    "fieldname": "quantity_surveyor",
    "fieldtype": "Link",
    "label": "Quantity Surveyor ",
-   "options": "Employee",
-   "reqd": 1
+   "options": "Employee"
   },
   {
    "description": "his section allows you to provide a short description of the project, upload and manage photos related to the construction project.",
@@ -184,7 +184,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-01 14:45:12.445601",
+ "modified": "2024-08-03 08:18:56.357064",
  "modified_by": "Administrator",
  "module": "Construction Management",
  "name": "Bill of Quantities",
@@ -200,6 +200,36 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
    "share": 1,
    "submit": 1,
    "write": 1

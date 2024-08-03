@@ -4,6 +4,56 @@
 frappe.ui.form.on("Bill of Quantities", {
     before_save: function(frm) {
         summarizeBoQ(frm);
+    },
+    refresh: function(frm) {
+        frm.add_custom_button(__('Create Material Schedule'), function() {
+            frappe.call({
+                method: 'frappe.client.get_list',
+                args: {
+                    doctype: 'Material Schedule',
+                    filters: {
+                        'boq': frm.doc.name
+                    },
+                    limit_page_length: 1
+                },
+                callback: function(response) {
+                    if (response.message && response.message.length > 0) {
+                        // Existing Material Schedule found, route to it
+                        frappe.set_route('Form', 'Material Schedule', response.message[0].name);
+                    } else {
+                        // No existing Material Schedule, create a new one 
+                        frappe.model.with_doctype('Material Schedule', function() {
+                            var lse = frappe.model.get_new_doc('Material Schedule');
+                            lse.boq = frm.doc.name;
+                            lse.project_name = frm.doc.project_name;
+                            lse.company = frm.doc.company;
+                            lse.project_location = frm.doc.project_location;
+                            lse.client = frm.doc.client;
+                            lse.consultant = frm.doc.consultant;
+                            lse.quantity_surveyor = frm.doc.quantity_surveyor__name;
+                            lse.date = frm.doc.date;
+                            lse.price_list = frm.doc.price_list;
+        
+                            // Copy items from Purchase Invoice to Commission Voucher
+                            frm.doc.boq_detail.forEach(function(item) {
+                                var voucher_detail = frappe.model.add_child(lse, 'Material Schedule Items', 'items');
+                                voucher_detail.section = item.task_type;
+                                voucher_detail.rate = item.rate;
+                                voucher_detail.amount = item.amount;
+                                voucher_detail.activity = item.task;
+                                voucher_detail.item = item.item_code;
+                                voucher_detail.quantity_required = item.qty;
+                            });
+        
+                            frappe.set_route('Form', 'Material Schedule', lse.name);
+                        });
+                    }
+                }
+            });
+        }, __("Create"));
+        
+
+        
     }
 });
 
@@ -81,3 +131,4 @@ function summarizeBoQ(frm) {
 
     refresh_field('summary_of_the_section');
 }
+

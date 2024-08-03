@@ -1,23 +1,32 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-08-01 14:25:15.748855",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_w6il",
+  "naming_series",
   "boq",
   "project_name",
   "project_location",
   "company",
-  "amended_from",
   "column_break_zzvr",
   "client",
   "consultant",
   "date",
   "quantity_surveyor",
+  "price_list",
   "section_break_cenl",
-  "items"
+  "items",
+  "section_break_iwwd",
+  "total_qty",
+  "column_break_kvej",
+  "grand_total",
+  "amended_from",
+  "section_break_biuc",
+  "activities"
  ],
  "fields": [
   {
@@ -32,8 +41,12 @@
   },
   {
    "fieldname": "project_name",
-   "fieldtype": "Data",
-   "label": "Project Name"
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Project Name",
+   "options": "Project"
   },
   {
    "fieldname": "project_location",
@@ -44,16 +57,6 @@
    "fieldname": "company",
    "fieldtype": "Data",
    "label": "Company"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Material Schedule",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   },
   {
    "fieldname": "column_break_zzvr",
@@ -88,15 +91,67 @@
    "fieldtype": "Table",
    "label": "Items",
    "options": "Material Schedule Items"
+  },
+  {
+   "fieldname": "section_break_iwwd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total"
+  },
+  {
+   "fieldname": "column_break_kvej",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CM-MS-.YYYY.-"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Material Schedule",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_biuc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "activities",
+   "fieldtype": "Table",
+   "label": "Summary of the Activities",
+   "options": "BoQ Summary Activities"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-01 14:39:07.904971",
+ "modified": "2024-08-03 07:45:10.790944",
  "modified_by": "Administrator",
  "module": "Construction Management",
  "name": "Material Schedule",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -108,6 +163,36 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
    "share": 1,
    "submit": 1,
    "write": 1

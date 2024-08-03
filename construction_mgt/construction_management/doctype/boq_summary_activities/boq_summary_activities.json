@@ -1,19 +1,16 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-07-31 16:54:30.334103",
+ "creation": "2024-08-02 13:16:45.927203",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "boq_items_section",
-  "task_type",
+  "section",
   "task",
-  "description",
-  "item_code",
   "column_break_hhtp",
-  "qty",
-  "rate",
+  "activity_name",
   "amount"
  ],
  "fields": [
@@ -23,11 +20,14 @@
    "label": "BoQ Items"
   },
   {
-   "fieldname": "task_type",
-   "fieldtype": "Link",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Section",
-   "options": "Task Type"
+   "label": "Amount"
+  },
+  {
+   "fieldname": "column_break_hhtp",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "task",
@@ -37,47 +37,27 @@
    "options": "Task"
   },
   {
-   "fieldname": "description",
+   "fetch_from": "task.subject",
+   "fieldname": "activity_name",
    "fieldtype": "Data",
-   "label": "Description"
-  },
-  {
-   "fieldname": "column_break_hhtp",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "qty",
-   "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Qty"
+   "label": "Activity Name"
   },
   {
-   "fieldname": "rate",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Rate"
-  },
-  {
-   "fieldname": "amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Amount"
-  },
-  {
-   "fieldname": "item_code",
+   "fieldname": "section",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Item",
-   "options": "Item"
+   "label": "Section",
+   "options": "Task Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-01 15:18:41.085017",
+ "modified": "2024-08-02 16:15:59.953531",
  "modified_by": "Administrator",
  "module": "Construction Management",
- "name": "BoQ Item",
+ "name": "BoQ Summary Activities",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
