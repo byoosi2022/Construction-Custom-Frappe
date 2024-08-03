@@ -59,9 +59,9 @@ def create_purchase_orders_and_expense_claims(material_request_name):
 def create_purchase_orders(doc):
     try:
         for item in doc.items:
-            if item.custom_pay_priority == "Pay Now":
+            if item.custom_pay_priority == "Pay Now" and item.custom_supplier_employee == "Supplier":
                 po = frappe.new_doc('Purchase Order')
-                po.supplier = item.custom_party if item.custom_supplier_employee == "Supplier" else None
+                po.supplier = item.custom_party
                 po.custom_material_request_id = doc.name
                 po.transaction_date = doc.transaction_date
                 po.schedule_date = doc.schedule_date
@@ -72,7 +72,7 @@ def create_purchase_orders(doc):
                     'qty': flt(item.qty),
                     'uom': item.uom,
                     'rate': flt(item.rate),
-                    'material_request':doc.name
+                    'material_request': doc.name
                 })
                 
                 po.insert()
@@ -110,9 +110,13 @@ def create_expense_claim(doc, employee):
         
         for item in doc.items:
             if item.custom_party == employee and item.custom_pay_priority == "Pay Now":
-                expense_claim.append('items', {
-                    'expense_type': 'Employee Expenses',
-                    'amount': flt(item.qty * item.rate)
+                expense_claim.append('expenses', {
+                    'expense_type': item.item_code,
+                    'amount': flt(item.qty * item.rate),
+                    'sanctioned_amount': flt(item.qty * item.rate),
+                    'cost_center': item.cost_center,
+                    'project': doc.custom_project_name,
+                    'description': item.custom_activity_name,
                 })
         
         expense_claim.insert()
@@ -120,5 +124,3 @@ def create_expense_claim(doc, employee):
     
     except Exception as e:
         frappe.log_error(f"Error in create_expense_claim: {str(e)}", "Expense Claim Creation")
-
-

@@ -24,10 +24,11 @@ frappe.ui.form.on('Material Request', {
                 material_request_name: frm.doc.name
             },
             callback: function (r) {
+                console.log(r)
                 if (r.exc) {
                     frappe.msgprint(__('An error occurred while processing the request.'));
                 } else {
-                    frappe.msgprint(__('Purchase Orders and Expense Claims have been created.'));
+                    // frappe.msgprint(__('Purchase Orders and Expense Claims have been created.'));
                 }
             }
         });
