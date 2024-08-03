@@ -50,7 +50,7 @@ def create_purchase_orders_and_expense_claims(material_request_name):
         
         # Create Purchase Orders and Expense Claims based on child table items
         create_purchase_orders(doc)
-        # create_expense_claims(doc)
+        create_expense_claims(doc)
     
     except Exception as e:
         frappe.log_error(f"Error in create_purchase_orders_and_expense_claims: {str(e)}", "Purchase Order/Expense Claim Creation")
@@ -71,7 +71,8 @@ def create_purchase_orders(doc):
                     'schedule_date': item.schedule_date,
                     'qty': flt(item.qty),
                     'uom': item.uom,
-                    'rate': flt(item.rate)
+                    'rate': flt(item.rate),
+                    'material_request':doc.name
                 })
                 
                 po.insert()
@@ -80,44 +81,44 @@ def create_purchase_orders(doc):
     except Exception as e:
         frappe.log_error(f"Error in create_purchase_orders: {str(e)}", "Purchase Order Creation")
 
-# @frappe.whitelist()
-# def create_expense_claims(doc):
-#     try:
-#         employees = set()
-#         for item in doc.items:
-#             if item.custom_pay_priority == "Pay Now" and item.custom_supplier_employee == "Employee":
-#                 employees.add(item.custom_party)
+@frappe.whitelist()
+def create_expense_claims(doc):
+    try:
+        employees = set()
+        for item in doc.items:
+            if item.custom_pay_priority == "Pay Now" and item.custom_supplier_employee == "Employee":
+                employees.add(item.custom_party)
         
-#         for employee in employees:
-#             create_expense_claim(doc, employee)
+        for employee in employees:
+            create_expense_claim(doc, employee)
     
-#     except Exception as e:
-#         frappe.log_error(f"Error in create_expense_claims: {str(e)}", "Expense Claim Creation")
+    except Exception as e:
+        frappe.log_error(f"Error in create_expense_claims: {str(e)}", "Expense Claim Creation")
 
-# @frappe.whitelist()
-# def create_expense_claim(doc, employee): 
-#     try:
-#         expense_claim = frappe.new_doc('Expense Claim')
-#         expense_claim.employee = employee
+@frappe.whitelist()
+def create_expense_claim(doc, employee): 
+    try:
+        expense_claim = frappe.new_doc('Expense Claim')
+        expense_claim.employee = employee
         
-#         # Fetch department and approvers
-#         department = frappe.get_doc('Employee', employee).department
-#         approver = frappe.get_doc('Department', department)
-#         user_approver = approver.expense_approvers[0].approver if approver.expense_approvers else None
+        # Fetch department and approvers
+        department = frappe.get_doc('Employee', employee).department
+        approver = frappe.get_doc('Department', department)
+        user_approver = approver.expense_approvers[0].approver if approver.expense_approvers else None
         
-#         expense_claim.expense_approver = user_approver
+        expense_claim.expense_approver = user_approver
         
-#         for item in doc.items:
-#             if item.custom_party == employee and item.custom_pay_priority == "Pay Now":
-#                 expense_claim.append('items', {
-#                     'expense_type': 'Employee Expenses',
-#                     'amount': flt(item.qty * item.rate)
-#                 })
+        for item in doc.items:
+            if item.custom_party == employee and item.custom_pay_priority == "Pay Now":
+                expense_claim.append('items', {
+                    'expense_type': 'Employee Expenses',
+                    'amount': flt(item.qty * item.rate)
+                })
         
-#         expense_claim.insert()
-#         # Uncomment if needed: expense_claim.submit()
+        expense_claim.insert()
+        # Uncomment if needed: expense_claim.submit()
     
-#     except Exception as e:
-#         frappe.log_error(f"Error in create_expense_claim: {str(e)}", "Expense Claim Creation")
+    except Exception as e:
+        frappe.log_error(f"Error in create_expense_claim: {str(e)}", "Expense Claim Creation")
 
 
