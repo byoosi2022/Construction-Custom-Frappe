@@ -101,12 +101,13 @@ def create_expense_claim(doc, employee):
         expense_claim = frappe.new_doc('Expense Claim')
         expense_claim.employee = employee
         
-        # Fetch department and approvers
+        # Fetch department and approvers 
         department = frappe.get_doc('Employee', employee).department
         approver = frappe.get_doc('Department', department)
         user_approver = approver.expense_approvers[0].approver if approver.expense_approvers else None
         
         expense_claim.expense_approver = user_approver
+        expense_claim.custom_material_request_id = doc.name
         
         for item in doc.items:
             if item.custom_party == employee and item.custom_pay_priority == "Pay Now":
