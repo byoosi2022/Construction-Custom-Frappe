@@ -108,6 +108,9 @@ def create_expense_claim(doc, employee):
         
         expense_claim.expense_approver = user_approver
         expense_claim.custom_material_request_id = doc.name
+        expense_claim.project = doc.custom_project_name
+        expense_claim.posting_date = doc.schedule_date
+        expense_claim.payable_account = "2110 - Creditors - RIL "
         
         for item in doc.items:
             if item.custom_party == employee and item.custom_pay_priority == "Pay Now":
@@ -121,7 +124,7 @@ def create_expense_claim(doc, employee):
                 })
         
         expense_claim.insert()
-        # Uncomment if needed: expense_claim.submit()
+        # expense_claim.submit()
     
     except Exception as e:
         frappe.log_error(f"Error in create_expense_claim: {str(e)}", "Expense Claim Creation")
