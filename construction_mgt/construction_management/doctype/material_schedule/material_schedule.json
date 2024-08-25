@@ -40,6 +40,8 @@
    "options": "Bill of Quantities"
   },
   {
+   "fetch_from": "boq.project_name",
+   "fetch_if_empty": 1,
    "fieldname": "project_name",
    "fieldtype": "Link",
    "in_filter": 1,
@@ -49,11 +51,14 @@
    "options": "Project"
   },
   {
+   "fetch_from": "boq.project_location",
+   "fetch_if_empty": 1,
    "fieldname": "project_location",
    "fieldtype": "Data",
    "label": "Project Location"
   },
   {
+   "fetch_from": "boq.company",
    "fieldname": "company",
    "fieldtype": "Data",
    "label": "Company"
@@ -63,11 +68,15 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "boq.client",
+   "fetch_if_empty": 1,
    "fieldname": "client",
    "fieldtype": "Data",
    "label": "Client"
   },
   {
+   "fetch_from": "boq.consultant",
+   "fetch_if_empty": 1,
    "fieldname": "consultant",
    "fieldtype": "Data",
    "label": "Consultant"
@@ -78,6 +87,7 @@
    "label": "Date"
   },
   {
+   "fetch_from": "boq.quantity_surveyor",
    "fieldname": "quantity_surveyor",
    "fieldtype": "Data",
    "label": "Quantity Surveyor "
@@ -117,6 +127,7 @@
    "options": "CM-MS-.YYYY.-"
   },
   {
+   "fetch_from": "boq.price_list",
    "fieldname": "price_list",
    "fieldtype": "Link",
    "label": "Price List",
@@ -147,7 +158,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-03 07:45:10.790944",
+ "modified": "2024-08-07 06:54:55.035208",
  "modified_by": "Administrator",
  "module": "Construction Management",
  "name": "Material Schedule",

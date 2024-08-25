@@ -184,7 +184,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-03 08:18:56.357064",
+ "modified": "2024-08-07 06:51:50.073300",
  "modified_by": "Administrator",
  "module": "Construction Management",
  "name": "Bill of Quantities",
@@ -235,7 +235,10 @@
    "write": 1
   }
  ],
+ "search_fields": "project_name, client",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "project_name"
 }

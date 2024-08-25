@@ -9,6 +9,7 @@
   "section",
   "activity",
   "item",
+  "materials_or_labour_item",
   "quantity_required",
   "rate",
   "amount",
@@ -29,6 +30,8 @@
    "fieldname": "section",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Section ",
    "options": "Task Type"
   },
@@ -36,6 +39,8 @@
    "fieldname": "activity",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Activity ",
    "options": "Task"
   },
@@ -43,7 +48,9 @@
    "fieldname": "item",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Item",
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "BoQ Item",
    "options": "Item"
   },
   {
@@ -61,6 +68,8 @@
    "fieldname": "quantity_required",
    "fieldtype": "Float",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Quantity Required"
   },
   {
@@ -71,12 +80,17 @@
    "fieldname": "rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Rate"
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Amount"
   },
   {
@@ -124,12 +138,21 @@
    "fieldname": "activity_name",
    "fieldtype": "Data",
    "label": "Activity Name"
+  },
+  {
+   "fieldname": "materials_or_labour_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Materials or Labour Item",
+   "options": "Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-02 13:25:20.082608",
+ "modified": "2024-08-07 11:29:40.961762",
  "modified_by": "Administrator",
  "module": "Construction Management",
  "name": "Material Schedule Items",
